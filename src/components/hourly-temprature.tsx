@@ -47,6 +47,10 @@ const HourlyTemprature = ({data}: HourlyTempratureProps) => {
                   }
                 }}
               />
+
+              <div>
+                adsnsakldnsakl
+              </div>
               <Line type='monotone' dataKey='temp' stroke="#2563eb" strokeWidth={2} dot={true}/>
               <Line type='monotone' dataKey='feels_like' stroke="#64748b" strokeWidth={2} dot={false} strokeDasharray={"5 5"}/>
             </LineChart>
