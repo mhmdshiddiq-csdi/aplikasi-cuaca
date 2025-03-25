@@ -1,6 +1,6 @@
 import type { ForecastData } from "@/api/types"
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
-import {Line, LineChart, ResponsiveContainer, XAxis, YAxis} from "recharts";
+import {Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
 import { format } from "date-fns";
 
 interface HourlyTempratureProps {
@@ -27,6 +27,26 @@ const HourlyTemprature = ({data}: HourlyTempratureProps) => {
               <XAxis dataKey={'time'} stroke="#888888" tickLine={false} axisLine={false} fontSize={12} />
               <YAxis stroke="#888888" tickLine={false} axisLine={false} fontSize={12} tickFormatter={(value) => `${value}°`}/>
               {/* toolTip */}
+              <Tooltip
+                content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    return (
+                      <div className="rounded-lg border bg-background p-2 shadow-sm">
+                        <div className="grid grid-cols-2 gap-2">
+                          <div className="flex flex-col">
+                            <span className="text-[0.70rem] text-muted-foreground uppercase">Temprature </span>
+                            <span>{payload[0].value}°</span>
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="text-[0.70rem] text-muted-foreground uppercase">Feels Like </span>
+                            <span>{payload[1].value}°</span>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  }
+                }}
+              />
               <Line type='monotone' dataKey='temp' stroke="#2563eb" strokeWidth={2} dot={true}/>
               <Line type='monotone' dataKey='feels_like' stroke="#64748b" strokeWidth={2} dot={false} strokeDasharray={"5 5"}/>
             </LineChart>
