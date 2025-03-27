@@ -35,16 +35,17 @@ const HourlyTemprature = ({data}: HourlyTempratureProps) => {
                         <div className="grid grid-cols-2 gap-2">
                           <div className="flex flex-col">
                             <span className="text-[0.70rem] text-muted-foreground uppercase">Temprature </span>
-                            <span>{payload[0].value}°</span>
+                            <span className="font-bold">{payload[0].value}°</span>
                           </div>
                           <div className="flex flex-col">
                             <span className="text-[0.70rem] text-muted-foreground uppercase">Feels Like </span>
-                            <span>{payload[1].value}°</span>
+                            <span className="font-bold">{payload[1].value}°</span>
                           </div>
                         </div>
                       </div>
                     )
                   }
+                  return null;
                 }}
               />
               <Line type='monotone' dataKey='temp' stroke="#2563eb" strokeWidth={2} dot={true}/>
