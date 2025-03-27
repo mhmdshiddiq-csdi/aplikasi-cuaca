@@ -1,6 +1,7 @@
 import { useTheme } from '@/context/theme-provider'
 import { Link } from 'react-router-dom'
 import { ModeToggle } from './mode-toggle'
+import CitySearch from './city-search'
 
 const Header = () => {
    const {theme, setTheme} =useTheme()
@@ -13,6 +14,9 @@ const Header = () => {
         </Link>
         <div>
           {/* Search Box */}
+          <CitySearch />
+
+          
           {/* Theme toggle */}
           <div onClick={() => setTheme(isDark ? 'light' : 'dark')}>
             <ModeToggle />
