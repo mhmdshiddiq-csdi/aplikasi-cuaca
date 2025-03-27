@@ -12,7 +12,7 @@ const Header = () => {
         <Link to={'/'}>
           <img src={isDark ? '/logo.png' : '/logo2.png'} alt="Klimate Logo" className='h-14'/>
         </Link>
-        <div>
+        <div className='flex gap-4'>
           {/* Search Box */}
           <CitySearch />
 
