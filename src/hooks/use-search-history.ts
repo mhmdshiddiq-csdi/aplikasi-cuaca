@@ -13,7 +13,7 @@ interface SearchHistoryItem {
 }
 
 export function useSearchHistory() {
-  const [history, setHistory] = useLocalStorage<SearchHistoryItem[]>("search-hostory", [])
+  const [history, setHistory] = useLocalStorage<SearchHistoryItem[]>("search-history", [])
   const historyQuery = useQuery({
     queryKey: ["search-history"],
     queryFn: () => history,
