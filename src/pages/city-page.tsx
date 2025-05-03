@@ -1,4 +1,5 @@
 import CurrentWeather from "@/components/current-weather";
+import FavoriteButton from "@/components/favorite-button";
 import HourlyTemprature from "@/components/hourly-temprature";
 import WeatherSkeleton from "@/components/loading-skeleton";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
@@ -45,7 +46,7 @@ const CityPage = () => {
       </div>
       <div>
         {/* Favorite button */}
-        
+        <FavoriteButton data={{...weatherQuery.data, name: params.cityName}}/>
       </div>
       <div className="grid gap-6">
         <div className="flex flex-col gap-4">
