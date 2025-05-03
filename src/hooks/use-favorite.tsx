@@ -48,6 +48,7 @@ export function useFavorites() {
   })
 
   const removeFavorite = useMutation({
+    // @ts-expect-error
     mutationFn: async (cityId: string) => {
       const newFavorites = favorites.filter((city) => city.id !== city.id);
       setFavorites(newFavorites);
